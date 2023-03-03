@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import {
   Navbar,
@@ -10,7 +11,9 @@ import {
 
 
 
-const HeaderSite = () => {
+
+
+const Header = () => {
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -39,4 +42,4 @@ const HeaderSite = () => {
   );
 };
 
-export default HeaderSite;
+export default Header;
