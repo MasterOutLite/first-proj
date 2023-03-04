@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import {
   Navbar,
@@ -8,10 +7,6 @@ import {
   Form,
   Button,
 } from "react-bootstrap";
-
-
-
-
 
 const Header = () => {
   return (
