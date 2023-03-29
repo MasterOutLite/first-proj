@@ -70,7 +70,12 @@ const Blog = () => {
             </div>
             <div className="flex-grow-1 ms-3">
               <h5>Blog post</h5>
-              <p>Lorem</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
+                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
+                porttitor nibh rutrum.
+              </p>
             </div>
           </div>
 
@@ -86,7 +91,17 @@ const Blog = () => {
             </div>
             <div className="flex-grow-1 ms-3">
               <h5>Blog post</h5>
-              <p>Lorem</p>
+              <p>
+                {" "}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
+                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
+                porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis
+                eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam
+                sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis
+                ante. Proin felis ex, gravida a purus sed, dignissim facilisis
+                ligula.
+              </p>
             </div>
           </div>
 
@@ -102,7 +117,17 @@ const Blog = () => {
             </div>
             <div className="flex-grow-1 ms-3">
               <h5>Blog post</h5>
-              <p>Lorem</p>
+              <p>
+                {" "}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
+                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
+                porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis
+                eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam
+                sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis
+                ante. Proin felis ex, gravida a purus sed, dignissim facilisis
+                ligula.
+              </p>
             </div>
           </div>
         </Col>
