@@ -6,49 +6,49 @@ const Blog = () => {
     {
       id: 1,
       variant: "warning",
-      title: "First Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 2,
       variant: "info",
-      title: "Second Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 3,
       variant: "dark",
-      title: "Third Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 4,
       variant: "primary",
-      title: "Third Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 5,
       variant: "dark",
-      title: "Third Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 6,
       variant: "success",
-      title: "Third Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
     {
       id: 7,
       variant: "danger",
-      title: "Third Post",
+      title: "Post",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
     },
