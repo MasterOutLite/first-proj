@@ -1,223 +1,142 @@
-import React, { useState } from "react";
-import { Container, Col, Row, Card, ListGroup, Alert } from "react-bootstrap";
+import React, { useEffect, useState, useContext } from "react";
+import { Container, Button, Form, FloatingLabel, DropdownButton, Dropdown } from "react-bootstrap";
+import { LanguageContext } from "../context/LanguageContext";
 import BlogPosts from "../component/BlogPosts";
+import { db } from "../firebase";
+import { uid } from "uid";
+import { getDatabase, onValue, ref, push, set, remove, update } from "firebase/database";
 
 const Blog = () => {
-  const [posts] = useState([
-    {
-      id: 1,
-      variant: "warning",
-      title: "Post",
-      date: "2023-04-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 2,
-      variant: "info",
-      title: "Post",
-      date: "2023-03-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 3,
-      variant: "dark",
-      title: "Post",
-      date: "2023-02-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 4,
-      variant: "primary",
-      title: "Post",
-      date: "2023-01-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 5,
-      variant: "dark",
-      title: "Post",
-      date: "2023-05-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 6,
-      variant: "success",
-      title: "Post",
-      date: "2022-04-04T14:43:49.711Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 7,
-      variant: "danger",
-      title: "Post",
-      date: "2026-06-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 8,
-      variant: "danger",
-      title: "Post",
-      date: "2026-06-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 9,
-      variant: "danger",
-      title: "Post",
-      date: "2026-06-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 10,
-      variant: "danger",
-      title: "Post",
-      date: "2026-06-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-    {
-      id: 11,
-      variant: "danger",
-      title: "Post",
-      date: "2026-06-04T14:44:07.053Z",
-      num: "",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis ante. Proin felis ex, gravida a purus sed, dignissim facilisis ligula. Phasellus et augue consequat, fermentum risus consequat, aliquet neque. Sed non congue metus. Integer laoreet et velit a imperdiet.      In efficitur lacus a venenatis aliquet. Cras lectus ipsum, fringilla et massa non, mattis cursus lorem. Donec hendrerit maximus luctus. Aenean egestas nec risus vitae tincidunt. Etiam auctor velit sed convallis aliquet. Duis pellentesque iaculis pulvinar. Curabitur vitae ligula rhoncus diam finibus blandit. Nulla malesuada sapien lorem, et dignissim nisl fermentum sit amet.",
-    },
-  ]);
+  // {
+  //   id: "",
+  //   category: "",
+  //   title: "",
+  //   content: "",
+  //   date: Date.now(),
+  //   variant: "",
+  //   rating: 0,
+  //   comments: [{}],
+  // }
+
+  async function writeUserData(post) {
+    const newPost = await set(ref(db, `post/${post.id}`), post);
+    //console.log(newPost);
+  }
+
+  const readPost = async () => {
+    const starCountRef = ref(db, "post");
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      const dataArray = Array.from(Object.keys(data).map((key) => data[key]));
+      dataArray.forEach((value) => {
+        if (value.comment) value.comment = Object.keys(value.comment).map((key) => value.comment[key]);
+      });
+      setPost(dataArray);
+    });
+  };
+
+  const createPost = () => {
+    const randVariant = Math.floor(Math.random() * variant.length) + 0;
+    return {
+      id: uid(),
+      category: "",
+      title: "",
+      content: "",
+      date: Date.now(),
+      variant: variant[randVariant],
+      rating: 0,
+      comments: [{}],
+    };
+  };
+
+  const sendPost = async () => {
+    if (title.length === 0 || content.length === 0 || category.length === 0) {
+      console.log("Post empty");
+      return;
+    }
+    post.category = category;
+    post.title = title;
+    post.content = content;
+    await writeUserData(post);
+    setCategory("");
+    setTitle("");
+    setContent("");
+    post = createPost();
+
+    // readPost();
+  };
+
+  const updatePost = async (post) => {
+    update(ref(db, `post/${post.id}`), post);
+  };
+
+  useEffect(() => {
+    readPost();
+  }, []);
+
+  const [posts, setPost] = useState([]);
+  const variant = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
+  const context = useContext(LanguageContext);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [category, setCategory] = useState("");
+  let post = createPost();
 
   return (
     <>
-      <Row>
-        <Col md="9">
-          <div className="d-flex align-items-center me-5">
-            <div className="flex-shrink-0">
-              <img
-                width={150}
-                height={150}
-                className="mr-3"
-                src="https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg"
-                alt="photo"
-              />
-            </div>
-            <div className="flex-grow-1 ms-3">
-              <h5>Blog post</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
-                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
-                porttitor nibh rutrum.
-              </p>
-            </div>
-          </div>
-
-          <div className="d-flex align-items-center me-5">
-            <div className="flex-shrink-0">
-              <img
-                width={150}
-                height={150}
-                className="mr-3"
-                src="https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg"
-                alt="photo"
-              />
-            </div>
-            <div className="flex-grow-1 ms-3">
-              <h5>Blog post</h5>
-              <p>
-                {" "}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
-                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
-                porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis
-                eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam
-                sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis
-                ante. Proin felis ex, gravida a purus sed, dignissim facilisis
-                ligula.
-              </p>
-            </div>
-          </div>
-
-          <div className="d-flex align-items-center me-5">
-            <div className="flex-shrink-0">
-              <img
-                width={150}
-                height={150}
-                className="mr-3"
-                src="https://emgotas.files.wordpress.com/2016/11/what-is-a-team.jpg"
-                alt="photo"
-              />
-            </div>
-            <div className="flex-grow-1 ms-3">
-              <h5>Blog post</h5>
-              <p>
-                {" "}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                venenatis at nibh sed rhoncus. Integer imperdiet ligula rutrum
-                cursus vulputate. Phasellus maximus nunc ac est pulvinar, nec
-                porttitor nibh rutrum. Sed at fringilla enim. Praesent iaculis
-                eget nunc vitae commodo. Cras a venenatis elit. Nullam eu diam
-                sem. Maecenas nisi magna, imperdiet at iaculis quis, luctus quis
-                ante. Proin felis ex, gravida a purus sed, dignissim facilisis
-                ligula.
-              </p>
-            </div>
-          </div>
-        </Col>
-        <Col md="3">
-          <h5 className="text-center mt-5">Категорії</h5>
-
-          <Card>
-            <ListGroup variant="flush">
-              <ListGroup.Item>категорія 1</ListGroup.Item>
-              <ListGroup.Item>категорія 2</ListGroup.Item>
-              <ListGroup.Item>категорія 3</ListGroup.Item>
-              <ListGroup.Item>категорія 4</ListGroup.Item>
-              <ListGroup.Item>категорія 5</ListGroup.Item>
-            </ListGroup>
-          </Card>
-
-          <Card className="mt-3 bg-light">
-            <Card.Body>
-              <Card.Title>Slide widget</Card.Title>
-              <Card.Text>Lorem</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
       <Container>
-        {/* <div>
-          <h1 className="p-3 primary">Blog</h1>
-          {posts.map((post) => (
-            <Alert
-              key={post.id}
-              variant={post.variant ? post.variant : "danger"}
-            >
-              <h3>{post.title}</h3>
-              <p>{post.content}</p>
-            </Alert>
-          ))}
-        </div> */}
-        <BlogPosts posts={posts} />
+        <Button
+          onClick={() => {
+            readPost();
+          }}
+        >
+          Read
+        </Button>
+
+        <div className=" p-4">
+          <Form.Select
+            aria-label="Default select example"
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
+            value={category}
+          >
+            <option>{context.language === "en" ? "Open this select menu" : "Відкрийте це меню вибору"}</option>
+            <option value="Famile">{context.language === "en" ? "Famaly" : "Сім'я"}</option>
+            <option value="Cook">{context.language === "en" ? "Cook" : "Готовка"}</option>
+            <option value="IT">IT</option>
+            <option value="Book">{context.language === "en" ? "Book" : "Книги"}</option>
+          </Form.Select>
+
+          <FloatingLabel
+            className="mt-2"
+            controlId="floatingTextarea2"
+            label={context.language === "en" ? "Comments" : "Коментар"}
+          >
+            <Form.Control
+              placeholder={context.language === "en" ? "Title" : "Заголовок"}
+              value={title}
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+            <Form.Control
+              className="mt-2"
+              as="textarea"
+              placeholder={context.language === "en" ? "Leave a comment here" : "Залиште коментар тут"}
+              style={{ height: "100px" }}
+              value={content}
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+            />
+          </FloatingLabel>
+
+          <Button className="mt-3" onClick={sendPost}>
+            Додати
+          </Button>
+        </div>
+        <BlogPosts posts={posts} updatePost={updatePost} />
       </Container>
     </>
   );
