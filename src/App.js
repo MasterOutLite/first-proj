@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HeaderSite from "./component/HeaderSite";
 import Header from "./Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import Home from "./Pages/Home";
 import Contacts from "./Pages/Contacts";
 import About from "./Pages/About";

@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 
 import Tab, { Containers } from "react-bootstrap/Tab";
 import { Col, Nav, Row, Container } from "react-bootstrap";
-
+import { LanguageContext } from "../context/LanguageContext";
 const About = () => {
+  const context = useContext(LanguageContext);
   return (
     <Container>
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -11,19 +12,29 @@ const About = () => {
           <Col sm={3}>
             <Nav variant="pills" className="flex-column mt-2">
               <Nav.Item>
-                <Nav.Link eventKey="first">Design</Nav.Link>
+                <Nav.Link eventKey="first">
+                  {context.language === "uk" ? "Дизайн" : "Design"}
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="second">Team</Nav.Link>
+                <Nav.Link eventKey="second">
+                  {context.language === "uk" ? "Команди" : "Team"}
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="third">Program</Nav.Link>
+                <Nav.Link eventKey="third">
+                  {context.language === "uk" ? "Програми" : "Program"}
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="fourth">Frameworks</Nav.Link>
+                <Nav.Link eventKey="fourth">
+                  {context.language === "uk" ? "Фреймворки" : "Frameworks"}
+                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="fifth">Library</Nav.Link>
+                <Nav.Link eventKey="fifth">
+                  {context.language === "uk" ? "Бібліотека" : "Library"}
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>

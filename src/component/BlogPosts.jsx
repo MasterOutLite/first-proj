@@ -1,43 +1,43 @@
-import { useState } from "react";
-import { Alert, Pagination } from "react-bootstrap";
-import Numbering from "./Numbering";
-import StarRatings from "react-star-ratings";
+import { useState, useMemo, useContext } from "react";
+import { Pagination } from "react-bootstrap";
 
-function BlogPosts({ posts }) {
-  // console.log(...posts);
-  const [post, setPosts] = useState(...[posts]);
-  const [sortedPosts, setSortedPosts] = useState(post);
+import { LanguageContext } from "../context/LanguageContext";
+import Post from "./Post";
+
+function BlogPosts({ posts, updatePost }) {
+  const context = useContext(LanguageContext);
+
+  const [page, setPages] = useState(1);
+  const [category, setCategory] = useState("");
+  const [post, setPost] = useState(...[posts]);
+  const listnerPost = useMemo(() => {
+    setPost([...posts]);
+  }, [posts]);
   const [sortDirection, setSortDirection] = useState("DESC");
 
   const sortPosts = () => {
-    const sorted = [...sortedPosts].sort((a, b) => {
+    let sorted = [...post].sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
       if (sortDirection === "DESC") {
-        return dateB - dateA;
-      } else {
         return dateA - dateB;
+      } else {
+        return dateB - dateA;
       }
     });
-    setSortedPosts(sorted);
-  };
 
-  const setNumber = (number) => {};
-
-  const setPage = (number) => {
-    const step = 5;
-    const start = number <= 0 ? 0 : number * step;
-    const arr = [];
-    for (let i = start - step; i <= start && i < post.length; i++) {
-      arr.push(post[i]);
+    if (category !== "") {
+      sorted = sorted.filter((value) => value.category === category);
     }
-
-    setSortedPosts(arr);
+    const step = 5;
+    const end = page <= 0 ? 0 : page * step;
+    return sorted.slice(end - step, end);
   };
+
+  const sortedPost = useMemo(() => sortPosts(), [sortDirection, page, category, post]);
 
   let active = 1;
   let items = [];
-  let activeElem;
   for (let number = 1; number <= 6; number++) {
     items.push(
       <Pagination.Item
@@ -45,16 +45,12 @@ function BlogPosts({ posts }) {
         active={number === active}
         className=""
         onClick={(e) => {
-          setPage(number);
-
+          setPages(number);
           for (const key of e.target.parentElement.parentElement.children) {
             key.classList.remove("active");
           }
           e.target.parentElement.classList.add("active");
           active = number;
-
-          // console.log(e.target.parentElement.parentElement.children);
-          // console.log(e.target.parentElement.parentElement.childNodes[2]);
         }}
       >
         {number}
@@ -68,7 +64,6 @@ function BlogPosts({ posts }) {
         <button
           onClick={() => {
             setSortDirection(sortDirection === "DESC" ? "ASC" : "DESC");
-            sortPosts();
           }}
           style={{
             backgroundColor: "transparent",
@@ -82,25 +77,18 @@ function BlogPosts({ posts }) {
           }}
           className="btn m-4"
         >
-          {sortDirection === "DESC" ? "Дата ↑" : "Дата ↓"}
+          {sortDirection === "DESC"
+            ? context.language === "uk"
+              ? "Дата ↑"
+              : "Date ↑"
+            : context.language === "uk"
+            ? "Дата ↓"
+            : "Date ↓"}
         </button>
       </div>
       <ul>
-        {sortedPosts.map((postt) => (
-          <Alert
-            key={postt.id}
-            variant={postt.variant ? postt.variant : "danger"}
-          >
-            <Numbering
-              startRating={postt.rating ? postt.rating : 0}
-              set={(rating) => {
-                postt.rating = rating;
-              }}
-            />
-            <h3>{postt.title}</h3>
-            <p>{JSON.stringify(new Date(postt.date).toDateString())}</p>
-            <p>{postt.content}</p>
-          </Alert>
+        {sortedPost.map((post) => (
+          <Post key={post.id} post={post} category={category} setCategory={setCategory} updatePost={updatePost} />
         ))}
       </ul>
 
