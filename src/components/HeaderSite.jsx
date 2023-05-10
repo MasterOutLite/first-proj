@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  Nav,
-  FormControl,
-  Container,
-  Form,
-  Button,
-} from "react-bootstrap";
-
-
+import { Navbar, Nav, FormControl, Container, Form, Button } from "react-bootstrap";
 
 const HeaderSite = () => {
   return (
@@ -25,11 +16,7 @@ const HeaderSite = () => {
               <Nav.Link href="/blog"> Blog </Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="me-sm-3"
-              />
+              <FormControl type="text" placeholder="Search" className="me-sm-3" />
               <Button variant="outline-info">Search</Button>
             </Form>
           </Navbar.Collapse>

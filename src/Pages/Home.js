@@ -1,6 +1,6 @@
-import { Button, Card, CardImg, Container } from "react-bootstrap";
-import CarouselBoxHk from "../component/CarouselBoxHk";
-import React, { Component, useContext, useMemo, useState } from "react";
+import { Button, Card, Container } from "react-bootstrap";
+import CarouselBoxHk from "../components/CarouselBoxHk";
+import React, { useContext, useMemo, useState } from "react";
 import { LanguageContext } from "../context/LanguageContext";
 
 const Home = () => {

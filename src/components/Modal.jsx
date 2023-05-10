@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Navbar, Nav, FormControl, Container, Form, Button, Modal } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import { LanguageContext } from "../context/LanguageContext";
 
 function ModalForm({ show, handleClose }) {

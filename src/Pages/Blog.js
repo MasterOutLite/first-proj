@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container, Button, Form, FloatingLabel, DropdownButton, Dropdown } from "react-bootstrap";
+import { Container, Button, Form, FloatingLabel } from "react-bootstrap";
 import { LanguageContext } from "../context/LanguageContext";
-import BlogPosts from "../component/BlogPosts";
+import BlogPosts from "../components/BlogPosts";
 import { db } from "../firebase";
 import { uid } from "uid";
-import { getDatabase, onValue, ref, push, set, remove, update } from "firebase/database";
+import { onValue, ref, set, update } from "firebase/database";
 
 const Blog = () => {
   // {

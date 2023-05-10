@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import Tab, { Containers } from "react-bootstrap/Tab";
+import Tab from "react-bootstrap/Tab";
 import { Col, Nav, Row, Container } from "react-bootstrap";
 import { LanguageContext } from "../context/LanguageContext";
 const About = () => {
@@ -12,29 +12,19 @@ const About = () => {
           <Col sm={3}>
             <Nav variant="pills" className="flex-column mt-2">
               <Nav.Item>
-                <Nav.Link eventKey="first">
-                  {context.language === "uk" ? "Дизайн" : "Design"}
-                </Nav.Link>
+                <Nav.Link eventKey="first">{context.language === "uk" ? "Дизайн" : "Design"}</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="second">
-                  {context.language === "uk" ? "Команди" : "Team"}
-                </Nav.Link>
+                <Nav.Link eventKey="second">{context.language === "uk" ? "Команди" : "Team"}</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="third">
-                  {context.language === "uk" ? "Програми" : "Program"}
-                </Nav.Link>
+                <Nav.Link eventKey="third">{context.language === "uk" ? "Програми" : "Program"}</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="fourth">
-                  {context.language === "uk" ? "Фреймворки" : "Frameworks"}
-                </Nav.Link>
+                <Nav.Link eventKey="fourth">{context.language === "uk" ? "Фреймворки" : "Frameworks"}</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="fifth">
-                  {context.language === "uk" ? "Бібліотека" : "Library"}
-                </Nav.Link>
+                <Nav.Link eventKey="fifth">{context.language === "uk" ? "Бібліотека" : "Library"}</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -47,14 +37,11 @@ const About = () => {
                   alt="picture one"
                 />
                 <p className="p-2 text-center text-wrap bg-primary badge mt-4 fs-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ultricies risus id velit faucibus condimentum eu quis sapien.
-                  Fusce malesuada eros et dolor egestas dictum. Suspendisse
-                  potenti. Vivamus quam leo, fermentum et rutrum et,
-                  sollicitudin finibus velit. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Cras vitae augue ac dui feugiat vehicula. Morbi quis quam
-                  hendrerit, bibendum dui non, mollis lectus.{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies risus id velit faucibus
+                  condimentum eu quis sapien. Fusce malesuada eros et dolor egestas dictum. Suspendisse potenti. Vivamus
+                  quam leo, fermentum et rutrum et, sollicitudin finibus velit. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Cras vitae augue ac dui feugiat vehicula. Morbi
+                  quis quam hendrerit, bibendum dui non, mollis lectus.{" "}
                 </p>
               </Tab.Pane>
               <Tab.Pane eventKey="second">
@@ -64,14 +51,11 @@ const About = () => {
                   alt="picture two"
                 />
                 <p className="p-2 text-center text-wrap bg-warning badge mt-4 fs-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ultricies risus id velit faucibus condimentum eu quis sapien.
-                  Fusce malesuada eros et dolor egestas dictum. Suspendisse
-                  potenti. Vivamus quam leo, fermentum et rutrum et,
-                  sollicitudin finibus velit. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Cras vitae augue ac dui feugiat vehicula. Morbi quis quam
-                  hendrerit, bibendum dui non, mollis lectus.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies risus id velit faucibus
+                  condimentum eu quis sapien. Fusce malesuada eros et dolor egestas dictum. Suspendisse potenti. Vivamus
+                  quam leo, fermentum et rutrum et, sollicitudin finibus velit. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Cras vitae augue ac dui feugiat vehicula. Morbi
+                  quis quam hendrerit, bibendum dui non, mollis lectus.
                 </p>
               </Tab.Pane>
               <Tab.Pane eventKey="third">
@@ -82,14 +66,11 @@ const About = () => {
                 />
                 <p className="p-2 text-center text-wrap bg-primary badge mt-4 fs-6">
                   {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ultricies risus id velit faucibus condimentum eu quis sapien.
-                  Fusce malesuada eros et dolor egestas dictum. Suspendisse
-                  potenti. Vivamus quam leo, fermentum et rutrum et,
-                  sollicitudin finibus velit. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Cras vitae augue ac dui feugiat vehicula. Morbi quis quam
-                  hendrerit, bibendum dui non, mollis lectus.{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies risus id velit faucibus
+                  condimentum eu quis sapien. Fusce malesuada eros et dolor egestas dictum. Suspendisse potenti. Vivamus
+                  quam leo, fermentum et rutrum et, sollicitudin finibus velit. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Cras vitae augue ac dui feugiat vehicula. Morbi
+                  quis quam hendrerit, bibendum dui non, mollis lectus.{" "}
                 </p>
               </Tab.Pane>
               <Tab.Pane eventKey="fourth">
@@ -100,14 +81,11 @@ const About = () => {
                 />
                 <p className="p-2 text-center text-wrap bg-info badge mt-4 fs-6">
                   {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ultricies risus id velit faucibus condimentum eu quis sapien.
-                  Fusce malesuada eros et dolor egestas dictum. Suspendisse
-                  potenti. Vivamus quam leo, fermentum et rutrum et,
-                  sollicitudin finibus velit. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Cras vitae augue ac dui feugiat vehicula. Morbi quis quam
-                  hendrerit, bibendum dui non, mollis lectus.{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies risus id velit faucibus
+                  condimentum eu quis sapien. Fusce malesuada eros et dolor egestas dictum. Suspendisse potenti. Vivamus
+                  quam leo, fermentum et rutrum et, sollicitudin finibus velit. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Cras vitae augue ac dui feugiat vehicula. Morbi
+                  quis quam hendrerit, bibendum dui non, mollis lectus.{" "}
                 </p>
               </Tab.Pane>
               <Tab.Pane eventKey="fifth">
@@ -118,14 +96,11 @@ const About = () => {
                 />
                 <p className="p-2 text-center text-wrap bg-secondary badge mt-4 fs-6">
                   {" "}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  ultricies risus id velit faucibus condimentum eu quis sapien.
-                  Fusce malesuada eros et dolor egestas dictum. Suspendisse
-                  potenti. Vivamus quam leo, fermentum et rutrum et,
-                  sollicitudin finibus velit. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Cras vitae augue ac dui feugiat vehicula. Morbi quis quam
-                  hendrerit, bibendum dui non, mollis lectus.{" "}
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies risus id velit faucibus
+                  condimentum eu quis sapien. Fusce malesuada eros et dolor egestas dictum. Suspendisse potenti. Vivamus
+                  quam leo, fermentum et rutrum et, sollicitudin finibus velit. Class aptent taciti sociosqu ad litora
+                  torquent per conubia nostra, per inceptos himenaeos. Cras vitae augue ac dui feugiat vehicula. Morbi
+                  quis quam hendrerit, bibendum dui non, mollis lectus.{" "}
                 </p>
               </Tab.Pane>
             </Tab.Content>
