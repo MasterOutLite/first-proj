@@ -62,8 +62,6 @@ const Blog = () => {
     setTitle("");
     setContent("");
     post = createPost();
-
-    // readPost();
   };
 
   const updatePost = async (post) => {
