@@ -11,7 +11,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div style={{ marginTop: "55px" }}></div>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

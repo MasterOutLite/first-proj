@@ -4,7 +4,8 @@ import { LanguageContext } from "./context/LanguageContext";
 import ModalForm from "./components/Modal";
 
 const Header = () => {
-  const context = useContext(LanguageContext);
+  // const context = useContext(LanguageContext);
+  const context = { language: "en" };
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,7 +29,8 @@ const Header = () => {
               aria-label="Default select example"
               style={{ width: "120px" }}
               onChange={(e) => {
-                context.setLanguage(e.target.value);
+                // context.setLanguage(e.target.value);
+                context.language = e.target.value;
               }}
             >
               <option value="uk">Українська</option>
