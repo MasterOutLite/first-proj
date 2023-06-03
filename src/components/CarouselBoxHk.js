@@ -91,12 +91,12 @@ const CarouselBoxHK = () => {
     <Carousel variant="primary">
       {items.map((Item) => (
         <Carousel.Item key={Item.id}>
-          <img className="d-block w-100" src={Item.src} alt="Ocean" />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img className="d-block" style={{ height: "800px" }} src={Item.src} alt="Ocean" />
+          </div>
           <Carousel.Caption>
             <h3 className="text-primary fs-4 bg-warning badge">{Item.title}</h3>
-            <p className="text-success fs-6 text-wrap bg-warning badge">
-              {Item.description}
-            </p>
+            <p className="text-success fs-6 text-wrap bg-warning badge">{Item.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

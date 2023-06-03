@@ -29,9 +29,7 @@ const Home = () => {
               <Card.Body>
                 <Card.Title>{context.language === "en" ? "Naturalists" : "Природознавці"}</Card.Title>
                 <Card.Text>{team} 2</Card.Text>
-                <Button variant="primary" href="/about">
-                  {buttonName}
-                </Button>
+                <Button variant="primary">{buttonName}</Button>
               </Card.Body>
             </Card>
           </div>
@@ -45,9 +43,7 @@ const Home = () => {
               <Card.Body>
                 <Card.Title>{context.language === "en" ? "Developers" : "Розробники"}</Card.Title>
                 <Card.Text>{team} 1</Card.Text>
-                <Button variant="primary" href="/about">
-                  {buttonName}
-                </Button>
+                <Button variant="primary">{buttonName}</Button>
               </Card.Body>
             </Card>
           </div>
@@ -61,9 +57,7 @@ const Home = () => {
               <Card.Body>
                 <Card.Title>{context.language === "en" ? "Marketers" : "Маркетилоги"}</Card.Title>
                 <Card.Text>{team} 3</Card.Text>
-                <Button variant="primary" href="/about">
-                  {buttonName}
-                </Button>
+                <Button variant="primary">{buttonName}</Button>
               </Card.Body>
             </Card>
           </div>
